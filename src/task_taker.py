@@ -9,7 +9,7 @@ class TaskTaker():
     def __init__(self, task_sources: list[Source]) -> None:
         self.task_sources = task_sources
 
-    def receive_tasks(self) -> None:
+    def receive_tasks(self) -> list:
         """Обрабатывает источники задач с проверкой контракта.
         Метод перебирает все источники задач и проверяет, соответствуют ли они
         контракту Source с помощью isinstance. Если источник соответствует контракту,
