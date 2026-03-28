@@ -1,11 +1,5 @@
 from typing import Protocol, runtime_checkable
-from dataclasses import dataclass
-
-@dataclass
-class Task:
-    """Класс данных, представляющий задачу с идентификатором"""
-    id: str
-    payload: str
+from src.task_model import Task
 
 @runtime_checkable
 class Source(Protocol):
