@@ -1,6 +1,6 @@
 import unittest
 from datetime import datetime
-from src.task_model import (
+from src.task.task_model import (
     Task,
     IdDescriptor,
     PriorityDescriptor,

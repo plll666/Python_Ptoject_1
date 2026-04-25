@@ -1,6 +1,6 @@
 from typing import Iterator, Callable
 
-from src.task_model import Task
+from src.task.task_model import Task
 from src.logger import make_logger
 
 logger = make_logger("TaskQueue")
@@ -25,15 +25,15 @@ class TaskQueue():
         """Возвращает количество задач в очереди."""
         return len(self._tasks)
 
-    def filter(self, predicate: Callable[[Task], bool]) -> TaskFilter:
+    def filter(self, predicate: Callable[[Task], bool]) -> "TaskFilter":
         """Фильтр с задающимся предикатом"""
         return TaskFilter(self._tasks, predicate)
 
-    def filter_by_status(self, status: str) -> TaskFilter:
+    def filter_by_status(self, status: str) -> "TaskFilter":
         """фильтрация по статусу"""
         return self.filter(lambda task: task.status == status)
 
-    def filter_by_priority(self, priority: int) -> TaskFilter:
+    def filter_by_priority(self, priority: int) -> "TaskFilter":
         """Фильтрация по приоритету"""
         return self.filter(lambda task: task.priority >= priority)
 
@@ -52,7 +52,7 @@ class  TaskFilter():
             if self.predicate(task):
                 yield task
 
-    def filter(self, predicate: Callable[[Task], bool]) -> TaskFilter:
+    def filter(self, predicate: Callable[[Task], bool]) -> "TaskFilter":
         """Комбинирует текущий фильтр с новым"""
         old_predicate = self.predicate
         new_predicate = lambda task: old_predicate(task) and predicate(task)
@@ -66,7 +66,7 @@ class TaskIterator:
         self._tasks = tasks
         self._index = 0
 
-    def __iter__(self) -> TaskIterator:
+    def __iter__(self) -> "TaskIterator":
         return self
 
     def __next__(self) -> Task:

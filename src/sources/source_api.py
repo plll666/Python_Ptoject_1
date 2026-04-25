@@ -1,5 +1,5 @@
 from src.logger import make_logger
-from src.task_model import Task
+from src.task.task_model import Task
 
 
 logger = make_logger("API_logger")
