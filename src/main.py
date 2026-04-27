@@ -3,7 +3,7 @@ from src.sources.source_file import FileSource
 from src.sources.source_generate import TasksGenerator
 from src.task.task_taker import TaskTaker
 from src.async_module.async_executor import AsyncExecutor
-from src.async_module.handlers import PrintHandler
+from src.async_module.handlers import PrintHandler, StatsHandler, LoggingHandler
 import asyncio
 
 
@@ -24,6 +24,8 @@ def main() -> None:
     async def run_async():
         async with AsyncExecutor(workers=2) as executor:
             executor.register_handler(PrintHandler())
+            executor.register_handler(LoggingHandler())
+            executor.register_handler(StatsHandler())
             for task in all_tasks:
                 await executor.submit(task)
             await executor.wait_all()

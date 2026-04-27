@@ -44,14 +44,10 @@ class AsyncTaskQueue(Generic[T]):
             item = await self._queue.get()
 
         if item is not None and len(item) == 3:
-            _, _, value = item
-            return value
+            return item[2]
         return None
 
     def task_done(self) -> None:
-        """Отметить задачу как обработанную."""
-        if self._pending_tasks > 0:
-            self._pending_tasks -= 1
         self._queue.task_done()
 
     async def join(self) -> None:
