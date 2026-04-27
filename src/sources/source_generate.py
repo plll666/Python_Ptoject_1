@@ -1,7 +1,7 @@
 from random import randint, choice
 from datetime import datetime
 
-from src.task_model import Task
+from src.task.task_model import Task
 from src.logger import make_logger
 
 logger = make_logger("TasksGeneratorLogger")

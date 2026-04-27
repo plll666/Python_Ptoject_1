@@ -1,8 +1,8 @@
 import unittest
 import tempfile
 import os
-from src.sources.source_file import FileSource, ParseError
-from src.task_model import Task
+from src.sources.source_file import FileSource
+from src.task.task_model import Task
 
 
 class TestFileSource(unittest.TestCase):

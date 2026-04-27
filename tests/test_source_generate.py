@@ -1,6 +1,6 @@
 import unittest
 from src.sources.source_generate import TasksGenerator
-from src.task_model import Task
+from src.task.task_model import Task
 
 
 class TestTasksGenerator(unittest.TestCase):

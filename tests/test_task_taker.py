@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import Mock, patch
-from src.task_taker import TaskTaker
+from src.task.task_taker import TaskTaker
 from src.contracts import Source
-from src.task_model import Task
+from src.task.task_model import Task
 
 
 class TestTaskTaker(unittest.TestCase):

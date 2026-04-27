@@ -1,6 +1,6 @@
 import unittest
-from src.contracts import Source, Task
-from src.task_model import Task as TaskModel
+from src.contracts import Source
+from src.task.task_model import Task as TaskModel
 
 
 class TestTaskModel(unittest.TestCase):

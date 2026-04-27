@@ -1,8 +1,6 @@
 import pytest
-from datetime import datetime
-from typing import List
-from src.task_model import Task
-from src.task_queue import TaskQueue, TaskFilter, TaskIterator
+from src.task.task_model import Task
+from src.task.task_queue import TaskQueue, TaskFilter, TaskIterator
 
 
 class TestTaskQueue:
